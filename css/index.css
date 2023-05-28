@@ -1,0 +1,234 @@
+/* Custom properties & global selectors */
+:root {
+  --color-white: #ffffff;
+  --color-background: #fafafa;
+  --color-border: #f2f2f2;
+  --color-line: #d7d7d7;
+  --color-moderate-cyan: hsl(176, 50%, 47%);
+  --color-dark-cyan: hsl(176, 72%, 28%);
+  --color-black: hsl(0, 0%, 0%);
+  --color-dark-gray: hsl(0, 0%, 48%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. HTML elements */
+body {
+  font-family: "Commissioner", sans-serif;
+}
+p {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. Cards */
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 35px 20px;
+  background-color: var(--color-white);
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. Buttons */
+.btn {
+  border: none;
+  border-radius: 50px;
+  font-weight: 500;
+  padding: 15px 30px;
+  color: var(--color-white);
+  background-color: var(--color-moderate-cyan);
+}
+
+.btn-bookmark {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+.btn-bookmark .svg {
+  width: 56px;
+}
+.btn-bookmark .svg__background {
+  fill: #2f2f2f;
+}
+.btn-bookmark .svg__icon {
+  fill: #b1b1b1;
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. Progress bar */
+.progress-bar {
+  border-radius: 100px;
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-background);
+}
+.progress-bar__bar {
+  border-radius: 100px;
+  width: 75%;
+  height: 100%;
+  background-color: var(--color-moderate-cyan);
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. Nav bar */
+.nav-bar {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 20px 0;
+}
+
+.nav-bar__hamburger {
+  object-fit: contain;
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. Hero */
+.hero__img-mobile {
+  width: 100%;
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. Main */
+.main-container {
+  background-color: var(--color-background);
+  padding: 0 20px;
+}
+
+.main {
+  position: relative;
+  top: -60px;
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. Project header */
+.project-header {
+  padding-top: 0;
+  text-align: center;
+  color: var(--color-dark-gray);
+}
+
+.project-header__logo {
+  position: relative;
+  top: -28px;
+}
+
+.project-header__title {
+  margin: 0 0 16px;
+  font-size: 24px;
+  line-height: 1.1;
+  color: var(--color-black);
+}
+
+.project-header__txt {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.project-header__btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn.btn--project-header {
+  width: 100%;
+  margin-right: 10px;
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. Project goals */
+.project-goals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: var(--color-dark-gray);
+}
+
+.project-goals__h2 {
+  margin: 0 0 10px;
+  font-size: 32px;
+  color: var(--color-black);
+}
+
+.project-goals__txt {
+  margin: 0 0 20px;
+}
+.project-goals__txt.txt--last {
+  margin: 0 0 30px;
+}
+
+.project-goals__line {
+  width: 30%;
+  height: 1px;
+  margin: 0 0 30px;
+  background-color: var(--color-line);
+}
