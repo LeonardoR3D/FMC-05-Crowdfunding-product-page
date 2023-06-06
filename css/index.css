@@ -184,7 +184,7 @@ h2 {
 .project-header__txt {
   margin: 0 0 16px;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .project-header__btns {
@@ -231,4 +231,89 @@ h2 {
   height: 1px;
   margin: 0 0 30px;
   background-color: var(--color-line);
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. About */
+.about {
+  font-size: 14px;
+  color: var(--color-dark-gray);
+}
+
+.about__h2 {
+  margin: 0 0 30px;
+  color: var(--color-black);
+}
+
+.about__txt {
+  margin: 0 0 30px;
+  line-height: 1.7;
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
+. Rewards */
+.card.card--reward {
+  border-color: var(--color-line);
+  padding: 20px;
+}
+.card--reward.last {
+  margin: 0;
+}
+
+.reward {
+  font-size: 14px;
+  color: var(--color-dark-gray);
+}
+
+.reward__name {
+  margin: 0 0 5px;
+  font-size: 14px;
+  color: var(--color-black);
+}
+
+.reward__pledge {
+  margin: 0 0 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-moderate-cyan);
+}
+
+.reward__txt {
+  margin: 0 0 20px;
+  line-height: 1.7;
+}
+
+.reward__number-left {
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.reward__number {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.reward__left {
+  padding-left: 10px;
+}
+
+.out-of-stock {
+  opacity: 0.5;
+}
+.out-of-stock .btn {
+  background-color: var(--color-dark-gray);
 }
