@@ -21,13 +21,28 @@
     <title>Frontend Mentor | Crowdfunding product page</title>
   </head>
   <body>
+    <div class="nav-bar__menu-background"></div>
     <nav class="nav-bar">
-      <img src="./images/logo.svg" alt="logo" />
-      <img
-        class="nav-bar__hamburger"
-        src="./images/icon-hamburger.svg"
-        alt="icon hamburguer"
-      />
+      <div class="nav-bar__mobile-section">
+        <img src="./images/logo.svg" alt="logo" />
+        <div class="nav-bar__menu-icons">
+          <img
+            class="nav-bar__hamburger"
+            src="./images/icon-hamburger.svg"
+            alt="hamburguer icon"
+          />
+          <img
+            class="nav-bar__close"
+            src="./images/icon-close-menu.svg"
+            alt="close icon"
+          />
+        </div>
+      </div>
+      <div class="nav-bar__menu-section hidden">
+        <div class="nav-bar__menu-element">About</div>
+        <div class="nav-bar__menu-element">Discover</div>
+        <div class="nav-bar__menu-element last">Get Started</div>
+      </div>
     </nav>
     <div class="hero">
       <img
@@ -141,7 +156,6 @@
         </section>
       </main>
     </div>
-    About Discover Get Started
 
     <!-- Selection modal start -->
 
