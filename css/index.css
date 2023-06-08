@@ -1,4 +1,4 @@
-/* Custom properties & global selectors */
+/* Custom properties, global selectors & keyframes */
 :root {
   --color-white: #ffffff;
   --color-background: #fafafa;
@@ -14,6 +14,67 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+@keyframes background-visible {
+  from {
+    opacity: 0;
+    height: 100vh;
+  }
+  to {
+    opacity: 0.5;
+    height: 100vh;
+  }
+}
+
+@keyframes background-hidden {
+  0% {
+    opacity: 0.5;
+    height: 100vh;
+  }
+  99% {
+    opacity: 0;
+    height: 100vh;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+@keyframes icon-hidden {
+  0% {
+    transform: scale(1);
+    width: auto;
+  }
+  30% {
+    transform: scale(1.5);
+  }
+  99% {
+    transform: scale(0);
+    width: auto;
+  }
+  100% {
+    transform: scale(0);
+    width: 0;
+  }
+}
+
+@keyframes icon-visible {
+  0% {
+    transform: scale(0);
+    width: 0;
+  }
+  1% {
+    transform: scale(0);
+    width: auto;
+  }
+  70% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+    width: auto;
+  }
 }
 /* .
 .
@@ -112,6 +173,46 @@ h2 {
 .
 .
 .----------------------------------------------------------------------------------------------------
+. Modals */
+.modal-background {
+  z-index: 3;
+  position: fixed;
+  width: 100vw;
+  background-color: black;
+}
+.modal-background.visible {
+  animation-name: background-visible;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.modal-background.hidden {
+  animation-name: background-hidden;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.modals-container {
+  position: absolute;
+  width: 100vw;
+  padding: 120px 20px 0;
+}
+.modals-container.hidden {
+  display: none;
+}
+
+.card.modal-pledges {
+  z-index: 4;
+  position: relative;
+  margin: 0;
+}
+/* .
+.
+.
+.
+.
+.
+.
+.----------------------------------------------------------------------------------------------------
 . Nav bar */
 .nav-bar__menu-background {
   z-index: 1;
@@ -119,40 +220,15 @@ h2 {
   width: 100vw;
   background-color: black;
 }
-.nav-bar__menu-background.hidden {
-  animation-name: menu-background-hidden;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-}
 .nav-bar__menu-background.visible {
-  animation-name: menu-background-visible;
+  animation-name: background-visible;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
-
-@keyframes menu-background-hidden {
-  0% {
-    opacity: 0.5;
-    height: 100vh;
-  }
-  99% {
-    opacity: 0;
-    height: 100vh;
-  }
-  100% {
-    height: 0;
-  }
-}
-
-@keyframes menu-background-visible {
-  from {
-    opacity: 0;
-    height: 100vh;
-  }
-  to {
-    opacity: 0.5;
-    height: 100vh;
-  }
+.nav-bar__menu-background.hidden {
+  animation-name: background-hidden;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 
 .nav-bar {
@@ -181,12 +257,13 @@ h2 {
 .nav-bar__hamburger.hidden {
   animation-name: icon-hidden;
   animation-duration: 0.25s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 .nav-bar__hamburger.visible {
   animation-name: icon-visible;
   animation-duration: 0.25s;
-  animation-fill-mode: forwards;
+  animation-delay: 0.25s;
+  animation-fill-mode: both;
 }
 
 .nav-bar__close {
@@ -196,47 +273,17 @@ h2 {
 .nav-bar__close.visible {
   animation-name: icon-visible;
   animation-duration: 0.25s;
-  animation-fill-mode: forwards;
+  animation-delay: 0.25s;
+  animation-fill-mode: both;
 }
 .nav-bar__close.hidden {
   animation-name: icon-hidden;
   animation-duration: 0.25s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes icon-hidden {
-  0% {
-    transform: scale(1);
-    width: auto;
-  }
-  30% {
-    transform: scale(1.5);
-  }
-  99% {
-    transform: scale(0);
-    width: auto;
-  }
-  100% {
-    width: 0;
-  }
-}
-
-@keyframes icon-visible {
-  0% {
-    transform: scale(0);
-    width: auto;
-  }
-  70% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-    width: auto;
-  }
+  animation-fill-mode: both;
 }
 
 .nav-bar__menu-section {
-  z-index: 10;
+  z-index: 2;
   position: relative;
   top: 40px;
   border-radius: 10px;
