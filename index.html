@@ -23,21 +23,26 @@
   <body>
     <div class="nav-bar__menu-background" id="nav-bar-menu-background"></div>
     <div class="modal-background" id="modal-background"></div>
-    <div class="modals-container hidden">
-      <div class="card modal-pledges">
-        <div>
-          <h2>Back this project</h2>
-          <img src="./images/icon-close-modal.svg" alt="icon close" />
+    <div class="modals-container" id="modals-container">
+      <div class="card modal-pledges hidden" id="modal-pledges">
+        <div class="modal-pledges__header">
+          <h2 class="modal-pledges__title">Back this project</h2>
+          <img
+            class="modal-pledges__close"
+            id="modal-pledges-close"
+            src="./images/icon-close-modal.svg"
+            alt="close icon"
+          />
         </div>
-        <p>
+        <p class="modal-pledges__txt">
           Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
           the world?
         </p>
         <div class="card card--reward">
           <div class="reward">
-            <div>
-              <div></div>
-              <h3 class="reward__name">Pledge with no reward</h3>
+            <div class="reward__header">
+              <div class="radio-button radio-button--reward"></div>
+              <h3 class="reward__name no-reward">Pledge with no reward</h3>
             </div>
             <p class="reward__txt">
               Choose to support us without a reward if you simply believe in our
@@ -48,10 +53,12 @@
         </div>
         <div class="card card--reward">
           <div class="reward">
-            <div>
-              <div></div>
-              <h3 class="reward__name">Bamboo Stand</h3>
-              <h3 class="reward__pledge">Pledge $25 or more</h3>
+            <div class="reward__header">
+              <div class="radio-button radio-button--reward"></div>
+              <div class="reward__name-pledge">
+                <h3 class="reward__name">Bamboo Stand</h3>
+                <h3 class="reward__pledge">Pledge $25 or more</h3>
+              </div>
             </div>
             <p class="reward__txt">
               You get an ergonomic stand made of natural bamboo. You've helped
@@ -66,10 +73,12 @@
         </div>
         <div class="card card--reward">
           <div class="reward">
-            <div>
-              <div></div>
-              <h3 class="reward__name">Black Edition Stand</h3>
-              <h3 class="reward__pledge">Pledge $75 or more</h3>
+            <div class="reward__header">
+              <div class="radio-button radio-button--reward"></div>
+              <div class="reward__name-pledge">
+                <h3 class="reward__name">Black Edition Stand</h3>
+                <h3 class="reward__pledge">Pledge $75 or more</h3>
+              </div>
             </div>
             <p class="reward__txt">
               You get a Black Special Edition computer stand and a personal
@@ -84,10 +93,12 @@
         </div>
         <div class="card card--reward last out-of-stock">
           <div class="reward">
-            <div>
-              <div></div>
-              <h3 class="reward__name">Mahogany Special Edition</h3>
-              <h3 class="reward__pledge">Pledge $200 or more</h3>
+            <div class="reward__header">
+              <div class="radio-button radio-button--reward"></div>
+              <div class="reward__name-pledge">
+                <h3 class="reward__name">Mahogany Special Edition</h3>
+                <h3 class="reward__pledge">Pledge $200 or more</h3>
+              </div>
             </div>
             <p class="reward__txt">
               You get two Special Edition Mahogany stands, a Backer T-Shirt, and
@@ -149,7 +160,9 @@
             strain.
           </p>
           <div class="project-header__btns">
-            <button class="btn btn--project-header">Back this project</button>
+            <button class="btn btn--project-header" id="btn-back-project">
+              Back this project
+            </button>
             <button class="btn-bookmark" aria-label="bookmark">
               <svg class="svg" viewbox="0 0 56 56">
                 <circle class="svg__background" cx="28" cy="28" r="28" />
