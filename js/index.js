@@ -8,6 +8,7 @@ const modalBackground = document.querySelector("#modal-background");
 const modalsContainer = document.querySelector("#modals-container");
 const modalPledges = document.querySelector("#modal-pledges");
 const modalPledgesClose = document.querySelector("#modal-pledges-close");
+const cardsReward = document.querySelectorAll(".modal-pledges .card--reward");
 // .
 // .
 // .
@@ -61,6 +62,20 @@ function closeModals() {
   modalsContainer.classList.add("hidden");
   modalPledges.classList.add("hidden");
 }
+
+function checkOption(event) {
+  if (
+    !event.currentTarget.classList.contains("out-of-stock") &&
+    !event.currentTarget.classList.contains("checked")
+  ) {
+    cardsReward.forEach((card) => {
+      if (card.classList.contains("checked")) {
+        card.classList.remove("checked");
+      }
+    });
+    event.currentTarget.classList.add("checked");
+  }
+}
 // .
 // .
 // .
@@ -76,3 +91,6 @@ navBarMenuBackground.addEventListener("click", closeMenu);
 btnBackProject.addEventListener("click", openModalPledges);
 modalPledgesClose.addEventListener("click", closeModals);
 modalBackground.addEventListener("click", closeModals);
+cardsReward.forEach((card) => {
+  card.addEventListener("click", checkOption);
+});
