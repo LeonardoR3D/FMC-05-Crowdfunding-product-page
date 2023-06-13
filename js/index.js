@@ -8,7 +8,19 @@ const modalBackground = document.querySelector("#modal-background");
 const modalsContainer = document.querySelector("#modals-container");
 const modalPledges = document.querySelector("#modal-pledges");
 const modalPledgesClose = document.querySelector("#modal-pledges-close");
-const cardsReward = document.querySelectorAll(".modal-pledges .card--reward");
+const modalCards = document.querySelectorAll(".modal-pledges .card--reward");
+const mainCards = document.querySelectorAll(".main .card--reward");
+const btnsSelectReward = document.querySelectorAll(".main .card--reward .btn");
+const modalThanks = document.querySelector("#modal-thanks");
+const modalThanksClose = document.querySelector("#modal-thanks-close");
+const btnsEnterPledge = document.querySelectorAll(
+  ".modal-pledges .card--reward .btn"
+);
+const inputsEnterPledge = document.querySelectorAll(
+  ".modal-pledges .card--reward .reward__input"
+);
+const totalMoney = document.querySelector("#total-money");
+const totalBackers = document.querySelector("#total-backers");
 // .
 // .
 // .
@@ -60,7 +72,12 @@ function closeModals() {
   modalBackground.classList.remove("visible");
   modalBackground.classList.add("hidden");
   modalsContainer.classList.add("hidden");
-  modalPledges.classList.add("hidden");
+  if (!modalPledges.classList.contains("hidden")) {
+    modalPledges.classList.add("hidden");
+  }
+  if (!modalThanks.classList.contains("hidden")) {
+    modalThanks.classList.add("hidden");
+  }
 }
 
 function checkOption(event) {
@@ -68,13 +85,46 @@ function checkOption(event) {
     !event.currentTarget.classList.contains("out-of-stock") &&
     !event.currentTarget.classList.contains("checked")
   ) {
-    cardsReward.forEach((card) => {
+    modalCards.forEach((card) => {
       if (card.classList.contains("checked")) {
         card.classList.remove("checked");
       }
     });
     event.currentTarget.classList.add("checked");
   }
+}
+
+function selectReward(btnNumber) {
+  openModalPledges();
+  let selection = btnNumber + 1;
+  modalCards.forEach((card) => {
+    if (card.classList.contains("checked")) {
+      card.classList.remove("checked");
+    }
+  });
+  modalCards[selection].classList.add("checked");
+  setTimeout(() => {
+    modalCards[selection].scrollIntoView();
+  }, 300);
+}
+
+function enterPledge(pledgeIndex) {
+  let previusTotalMoney = Number(totalMoney.innerHTML.replaceAll(",", ""));
+  let previusTotalBackers = Number(totalBackers.innerHTML.replaceAll(",", ""));
+  let newTotalMoney =
+    previusTotalMoney + Number(inputsEnterPledge[pledgeIndex].value);
+  let newTotalBackers = previusTotalBackers + 1;
+  totalMoney.innerHTML = newTotalMoney.toLocaleString("en", {
+    useGrouping: true,
+  });
+  totalBackers.innerHTML = newTotalBackers.toLocaleString("en", {
+    useGrouping: true,
+  });
+  window.scrollTo(0, 0);
+  modalPledges.classList.add("hidden");
+  setTimeout(() => {
+    modalThanks.classList.remove("hidden");
+  }, 500);
 }
 // .
 // .
@@ -91,6 +141,19 @@ navBarMenuBackground.addEventListener("click", closeMenu);
 btnBackProject.addEventListener("click", openModalPledges);
 modalPledgesClose.addEventListener("click", closeModals);
 modalBackground.addEventListener("click", closeModals);
-cardsReward.forEach((card) => {
+modalCards.forEach((card) => {
   card.addEventListener("click", checkOption);
+});
+btnsSelectReward.forEach((btn, index) => {
+  if (!mainCards[index].classList.contains("out-of-stock")) {
+    btn.addEventListener("click", function () {
+      selectReward(index);
+    });
+  }
+});
+modalThanksClose.addEventListener("click", closeModals);
+btnsEnterPledge.forEach((btn, index) => {
+  btn.addEventListener("click", function () {
+    enterPledge(index);
+  });
 });

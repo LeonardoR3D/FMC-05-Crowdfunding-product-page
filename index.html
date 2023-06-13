@@ -164,6 +164,16 @@
           </div>
         </div>
       </div>
+      <div class="card modal-thanks hidden" id="modal-thanks">
+        <img class="modal-thanks__img" src="./images/icon-check.svg" alt="" />
+        <h3 class="modal-thanks__title">Thanks for your support!</h3>
+        <p class="modal-thanks__txt">
+          Your pledge brings us one step closer to sharing Mastercraft Bamboo
+          Monitor Riser worldwide. You will get an email once our campaign is
+          completed.
+        </p>
+        <button class="btn" id="modal-thanks-close">Got it!</button>
+      </div>
     </div>
     <nav class="nav-bar">
       <div class="nav-bar__mobile-section">
@@ -224,10 +234,12 @@
           </div>
         </header>
         <section class="card project-goals">
-          <h2 class="project-goals__h2">$89,914</h2>
+          <h2 class="project-goals__h2">
+            $<span id="total-money">89,914</span>
+          </h2>
           <p class="project-goals__txt">of $100,000 backed</p>
           <div class="project-goals__line"></div>
-          <h2 class="project-goals__h2">5,007</h2>
+          <h2 class="project-goals__h2" id="total-backers">5,007</h2>
           <p class="project-goals__txt">total backers</p>
           <div class="project-goals__line"></div>
           <h2 class="project-goals__h2">56</h2>
@@ -303,23 +315,5 @@
         </section>
       </main>
     </div>
-
-    <!-- Selected pledge start -->
-    Enter your pledge $75 Continue
-    <!-- Selected pledge end -->
-
-    <!-- Selected pledge  start -->
-    Enter your pledge $200 Continue
-    <!-- Selected pledge end -->
-
-    <!-- Selection modal end -->
-
-    <!-- Success modal start -->
-
-    Thanks for your support! Your pledge brings us one step closer to sharing
-    Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our
-    campaign is completed. Got it!
-
-    <!-- Success modal end -->
   </body>
 </html>

@@ -100,6 +100,9 @@
 .
 .----------------------------------------------------------------------------------------------------
 . HTML elements */
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Commissioner", sans-serif;
 }
@@ -287,6 +290,40 @@ h2 {
 
 .modal-pledges__txt {
   margin-bottom: 25px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-dark-gray);
+}
+
+.card.modal-thanks {
+  margin: 0;
+}
+
+.modal-thanks {
+  z-index: 4;
+  position: relative;
+  max-height: 400px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.5s;
+}
+.modal-thanks.hidden {
+  border: none;
+  padding-top: 0;
+  padding-bottom: 0;
+  max-height: 0;
+}
+
+.modal-thanks__img {
+  margin-bottom: 20px;
+}
+
+.modal-thanks__title {
+  margin: 0;
+}
+
+.modal-thanks__txt {
+  margin: 20px 0;
   font-size: 14px;
   line-height: 1.7;
   color: var(--color-dark-gray);
@@ -638,7 +675,7 @@ h2 {
   border-radius: 100px;
   display: flex;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 10px 0 30px;
 }
 
 .reward__input-decoration {
@@ -649,7 +686,7 @@ h2 {
 
 .reward__input {
   border: none;
-  max-width: 30px;
+  max-width: 50px;
   font-weight: 700;
 }
 .reward__input:focus-visible {
