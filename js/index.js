@@ -106,7 +106,7 @@ function selectReward(btnNumber) {
   modalCards[selection].classList.add("checked");
   setTimeout(() => {
     modalCards[selection].scrollIntoView();
-  }, 300);
+  }, 250);
 }
 
 function enterPledge(pledgeIndex) {

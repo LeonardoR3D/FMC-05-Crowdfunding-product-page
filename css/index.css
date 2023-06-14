@@ -116,6 +116,17 @@ p {
 h2 {
   margin: 0;
 }
+
+/* Removes arrows in numeric inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 /* .
 .
 .
@@ -253,6 +264,7 @@ h2 {
 .----------------------------------------------------------------------------------------------------
 . Radio Buttons */
 .radio-button {
+  flex-shrink: 0;
   border: 1px solid var(--color-line);
   border-radius: 100px;
   width: 25px;
@@ -271,8 +283,23 @@ h2 {
   display: block;
 }
 
-.radio-button.radio-button--reward {
+.radio-button.radio-button--mobile-reward {
   margin-right: 15px;
+}
+@media only screen and (min-width: 1024px) {
+  .radio-button.radio-button--mobile-reward {
+    display: none;
+  }
+}
+
+.radio-button.radio-button--desktop-reward {
+  display: none;
+}
+@media only screen and (min-width: 1024px) {
+  .radio-button.radio-button--desktop-reward {
+    display: block;
+    margin-right: 25px;
+  }
 }
 /* .
 .
@@ -353,9 +380,26 @@ h2 {
 .modal-pledges__title {
   font-size: 19px;
 }
+@media only screen and (min-width: 1024px) {
+  .modal-pledges__title {
+    font-size: 23px;
+  }
+}
 
-.modal-pledges__close {
-  object-fit: contain;
+.modal-pledges__close path {
+  opacity: 0.4;
+}
+@media only screen and (min-width: 1024px) {
+  .modal-pledges__close {
+    align-self: self-start;
+    position: relative;
+    left: 15px;
+    bottom: 15px;
+    cursor: pointer;
+  }
+  .modal-pledges__close:hover path {
+    opacity: 1;
+  }
 }
 
 .modal-pledges__txt {
@@ -363,6 +407,11 @@ h2 {
   font-size: 14px;
   line-height: 1.7;
   color: var(--color-dark-gray);
+}
+@media only screen and (min-width: 1024px) {
+  .modal-pledges__txt {
+    font-size: 16px;
+  }
 }
 
 .card.modal-thanks {
@@ -777,6 +826,40 @@ h2 {
   .card.card--reward {
     padding: 40px;
   }
+
+  .modal-pledges .card.card--reward {
+    padding: 35px 25px;
+  }
+
+  .modal-pledges .card--reward:hover {
+    cursor: pointer;
+  }
+  .modal-pledges .card--reward:hover.checked {
+    cursor: auto;
+  }
+  .modal-pledges .card--reward:hover.out-of-stock {
+    cursor: auto;
+  }
+
+  .modal-pledges .card--reward:hover .reward__name {
+    color: var(--color-moderate-cyan);
+  }
+  .modal-pledges .card--reward:hover.checked .reward__name {
+    color: var(--color-black);
+  }
+  .modal-pledges .card--reward:hover.out-of-stock .reward__name {
+    color: var(--color-black);
+  }
+
+  .modal-pledges .card--reward:hover .radio-button {
+    border-color: var(--color-moderate-cyan);
+  }
+  .modal-pledges .card--reward:hover.checked .radio-button {
+    border-color: var(--color-line);
+  }
+  .modal-pledges .card--reward:hover.out-of-stock .radio-button {
+    border-color: var(--color-line);
+  }
 }
 
 .reward {
@@ -787,12 +870,29 @@ h2 {
   .reward {
     font-size: 16px;
   }
+
+  .reward__desktop-section {
+    display: flex;
+    transition: 0.5s;
+  }
+  .checked .reward__desktop-section {
+    margin-bottom: 35px;
+  }
 }
 
 .reward__header {
   display: flex;
   align-items: center;
   margin: 10px 0 30px;
+}
+@media only screen and (min-width: 1024px) {
+  .reward__header {
+    margin: 0 0 30px;
+  }
+
+  .modal-pledges .reward__header {
+    justify-content: space-between;
+  }
 }
 
 .reward__name {
@@ -804,6 +904,9 @@ h2 {
   .reward__name {
     margin: 0;
     font-size: 18px;
+  }
+  .modal-pledges .reward__name {
+    margin-right: 20px;
   }
 }
 
@@ -833,6 +936,9 @@ h2 {
     justify-content: space-between;
     margin-bottom: 25px;
   }
+  .modal-pledges .reward__name-pledge {
+    margin: 0;
+  }
 }
 
 .reward__txt {
@@ -842,6 +948,10 @@ h2 {
 @media only screen and (min-width: 1024px) {
   .reward__txt {
     margin-bottom: 25px;
+  }
+
+  .modal-pledges .reward__txt {
+    margin: 0;
   }
 }
 
@@ -860,6 +970,29 @@ h2 {
 @media only screen and (min-width: 1024px) {
   .reward__number-left {
     margin: 0;
+  }
+}
+
+.reward__mobile-number-left {
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+}
+@media only screen and (min-width: 1024px) {
+  .reward__mobile-number-left {
+    display: none;
+  }
+}
+
+.reward__desktop-number-left {
+  display: none;
+}
+@media only screen and (min-width: 1024px) {
+  .reward__desktop-number-left {
+    display: block;
+  }
+  .reward__desktop-number-left .reward__number {
+    font-size: 16px;
   }
 }
 
@@ -888,9 +1021,14 @@ h2 {
 .reward__line {
   position: relative;
   left: -40px;
-  width: 100vh;
+  width: 100vw;
   height: 1px;
   background-color: var(--color-line);
+  opacity: 0;
+  transition: 0.5s;
+}
+.checked .reward__line {
+  opacity: 1;
 }
 
 .reward__enter-pledge {
@@ -901,11 +1039,25 @@ h2 {
 .checked .reward__enter-pledge {
   max-height: 100px;
 }
+@media only screen and (min-width: 1024px) {
+  .reward__enter-pledge {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+  }
+}
 
 .reward__pledge-title {
   font-size: 14px;
   font-weight: 400;
   text-align: center;
+}
+@media only screen and (min-width: 1024px) {
+  .reward__pledge-title {
+    font-size: 16px;
+    margin: 0;
+  }
 }
 
 .reward__input-button {
@@ -919,6 +1071,15 @@ h2 {
   display: flex;
   align-items: center;
   padding: 0 10px 0 30px;
+}
+@media only screen and (min-width: 1024px) {
+  .reward__input-skin {
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  .reward__input-skin:hover {
+    border-color: var(--color-dark-cyan);
+  }
 }
 
 .reward__input-decoration {
@@ -934,4 +1095,9 @@ h2 {
 }
 .reward__input:focus-visible {
   outline: none;
+}
+@media only screen and (min-width: 1024px) {
+  .reward__input {
+    cursor: pointer;
+  }
 }
