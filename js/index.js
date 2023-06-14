@@ -21,6 +21,7 @@ const inputsEnterPledge = document.querySelectorAll(
 );
 const totalMoney = document.querySelector("#total-money");
 const totalBackers = document.querySelector("#total-backers");
+const btnBookmark = document.querySelector("#btn-bookmark");
 // .
 // .
 // .
@@ -156,4 +157,7 @@ btnsEnterPledge.forEach((btn, index) => {
   btn.addEventListener("click", function () {
     enterPledge(index);
   });
+});
+btnBookmark.addEventListener("click", function () {
+  btnBookmark.classList.toggle("bookmarked");
 });

@@ -176,7 +176,7 @@
       </div>
     </div>
     <nav class="nav-bar">
-      <div class="nav-bar__mobile-section">
+      <div class="nav-bar__main-section">
         <img src="./images/logo.svg" alt="logo" />
         <div class="nav-bar__menu-icons">
           <img
@@ -192,6 +192,11 @@
             alt="close icon"
           />
         </div>
+        <div class="nav-bar__desktop-menu">
+          <a class="nav-bar__link" href="#">About</a>
+          <a class="nav-bar__link" href="#">Discover</a>
+          <a class="nav-bar__link" href="#">Get Started</a>
+        </div>
       </div>
       <div class="nav-bar__menu-section hidden" id="nav-bar-menu">
         <div class="nav-bar__menu-element">About</div>
@@ -204,6 +209,11 @@
         class="hero__img-mobile"
         src="./images/image-hero-mobile.jpg"
         alt="image hero mobile"
+      />
+      <img
+        class="hero__img-desktop"
+        src="./images/image-hero-desktop.jpg"
+        alt="image hero desktop"
       />
     </div>
     <div class="main-container">
@@ -225,25 +235,38 @@
             <button class="btn btn--project-header" id="btn-back-project">
               Back this project
             </button>
-            <button class="btn-bookmark" aria-label="bookmark">
+            <button
+              class="btn-bookmark"
+              id="btn-bookmark"
+              aria-label="bookmark"
+            >
               <svg class="svg" viewbox="0 0 56 56">
                 <circle class="svg__background" cx="28" cy="28" r="28" />
                 <path class="svg__icon" d="M23 19v18l5-5.058L33 37V19z" />
               </svg>
+              <div class="btn-bookmark__txt"></div>
             </button>
           </div>
         </header>
         <section class="card project-goals">
-          <h2 class="project-goals__h2">
-            $<span id="total-money">89,914</span>
-          </h2>
-          <p class="project-goals__txt">of $100,000 backed</p>
-          <div class="project-goals__line"></div>
-          <h2 class="project-goals__h2" id="total-backers">5,007</h2>
-          <p class="project-goals__txt">total backers</p>
-          <div class="project-goals__line"></div>
-          <h2 class="project-goals__h2">56</h2>
-          <p class="project-goals__txt txt--last">days left</p>
+          <div class="project-goals__section">
+            <div class="project-goals__subsection">
+              <h2 class="project-goals__h2">
+                $<span id="total-money">89,914</span>
+              </h2>
+              <p class="project-goals__txt">of $100,000 backed</p>
+            </div>
+            <div class="project-goals__line"></div>
+            <div class="project-goals__subsection">
+              <h2 class="project-goals__h2" id="total-backers">5,007</h2>
+              <p class="project-goals__txt">total backers</p>
+            </div>
+            <div class="project-goals__line"></div>
+            <div class="project-goals__subsection">
+              <h2 class="project-goals__h2">56</h2>
+              <p class="project-goals__txt txt--last">days left</p>
+            </div>
+          </div>
           <div class="progress-bar">
             <div class="progress-bar__bar"></div>
           </div>
@@ -266,50 +289,62 @@
           </div>
           <div class="card card--reward">
             <div class="reward">
-              <h3 class="reward__name">Bamboo Stand</h3>
-              <h3 class="reward__pledge">Pledge $25 or more</h3>
+              <div class="reward__name-pledge">
+                <h3 class="reward__name">Bamboo Stand</h3>
+                <h3 class="reward__pledge">Pledge $25 or more</h3>
+              </div>
               <p class="reward__txt">
                 You get an ergonomic stand made of natural bamboo. You've helped
                 us launch our promotional campaign, and you'll be added to a
                 special Backer member list.
               </p>
-              <div class="reward__number-left">
-                <span class="reward__number">101</span>
-                <span class="reward__left">left</span>
+              <div class="reward__number-left-btn">
+                <div class="reward__number-left">
+                  <span class="reward__number">101</span>
+                  <span class="reward__left">left</span>
+                </div>
+                <button class="btn">Select Reward</button>
               </div>
-              <button class="btn">Select Reward</button>
             </div>
           </div>
           <div class="card card--reward">
             <div class="reward">
-              <h3 class="reward__name">Black Edition Stand</h3>
-              <h3 class="reward__pledge">Pledge $75 or more</h3>
+              <div class="reward__name-pledge">
+                <h3 class="reward__name">Black Edition Stand</h3>
+                <h3 class="reward__pledge">Pledge $75 or more</h3>
+              </div>
               <p class="reward__txt">
                 You get a Black Special Edition computer stand and a personal
                 thank you. You'll be added to our Backer member list. Shipping
                 is included.
               </p>
-              <div class="reward__number-left">
-                <span class="reward__number">64</span>
-                <span class="reward__left">left</span>
+              <div class="reward__number-left-btn">
+                <div class="reward__number-left">
+                  <span class="reward__number">64</span>
+                  <span class="reward__left">left</span>
+                </div>
+                <button class="btn">Select Reward</button>
               </div>
-              <button class="btn">Select Reward</button>
             </div>
           </div>
           <div class="card card--reward last out-of-stock">
             <div class="reward">
-              <h3 class="reward__name">Mahogany Special Edition</h3>
-              <h3 class="reward__pledge">Pledge $200 or more</h3>
+              <div class="reward__name-pledge">
+                <h3 class="reward__name">Mahogany Special Edition</h3>
+                <h3 class="reward__pledge">Pledge $200 or more</h3>
+              </div>
               <p class="reward__txt">
                 You get two Special Edition Mahogany stands, a Backer T-Shirt,
                 and a personal thank you. You'll be added to our Backer member
                 list. Shipping is included.
               </p>
-              <div class="reward__number-left">
-                <span class="reward__number">0</span>
-                <span class="reward__left">left</span>
+              <div class="reward__number-left-btn">
+                <div class="reward__number-left">
+                  <span class="reward__number">0</span>
+                  <span class="reward__left">left</span>
+                </div>
+                <button class="btn">Out of Stock</button>
               </div>
-              <button class="btn">Out of Stock</button>
             </div>
           </div>
         </section>
